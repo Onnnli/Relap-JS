@@ -1,0 +1,76 @@
+.auth-overlay{
+    background-image: url('../img/bgRegestration.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(243, 217, 237, 0.26);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   
+}
+.out {
+    margin-bottom: 10px;
+    font-size: smaller;
+    color: red;
+    text-align: center;
+    height: 20px;
+}
+
+.form-bg {
+    background-color: #fff;
+    border-radius: 25px;
+    padding: 50px 100px;
+    box-shadow: 5px 10px 22px rgba(241, 179, 221, 0.2);
+    h2{
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 56px;
+        line-height: 64px;
+        text-align: center;
+        color: #333333;
+        margin-bottom: 23px;
+    }
+}
+#formReg{
+    display: none;
+}
+
+#auth, #authReg {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+#mail, #pass, #mailReg, #passReg, #passReg2 {
+    outline: none;
+    background: #FFFFFF;
+    border: 1px solid #DADADA;
+    box-sizing: border-box;
+    border-radius: 3px;
+    padding: 10px 0px 10px 12px;
+    margin-bottom: 20px;
+}
+
+#submit, #submitReg {
+    background-color: #C86DD7;
+    border-radius: 24px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 0px 10px 12px;
+    color: #fffFFf;
+    margin-bottom: 20px;
+   
+}
+
+
+.reg {
+    display: block;
+    text-align: center;
+    font-size: 13px;
+}
+

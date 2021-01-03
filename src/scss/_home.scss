@@ -1,0 +1,140 @@
+.home-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 60px;
+}
+
+.image-block{
+    background-image: url(../img/illustration.svg);
+    background-repeat: no-repeat;
+    min-height: 79.5vh;
+    width: 100%;
+}
+
+.title-block {
+    flex-basis: 50%;
+    margin-right: 60px;
+
+    & .title-content{
+        font-style: normal;
+        font-weight: bold;
+        font-size: 72px;
+        line-height: 72px;
+        color: #FFFFFF;
+        margin-bottom: 26px;
+    }
+
+    & .subtitle-content{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        color: #FFFFFF;
+        margin-bottom: 40px;
+    }
+}
+
+.modal{
+    text-decoration: none;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px; /* identical to box height, or 150% */
+    text-align: center;
+    color: #FFFFFF;
+    padding: 12px 59px;
+    background-color: #FFC300;
+    border-radius: 24px;
+}
+
+.agent {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    margin-bottom: 40px;
+}
+
+
+.modal-overlay {
+    position: absolute;
+    background-color: #000000af;
+    height: 100vh;
+    top: 0;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.modal-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 24px;
+    padding: 70px 25px;
+    max-width: 1050px;
+    width: 100%;
+
+}
+
+.close-btn {
+    color: red;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.modal-text{
+    color: #333333;
+    max-width: 450px;
+    margin-right: 20px;
+}
+.modal-block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-image{
+    background: linear-gradient(224.72deg, #3023AE -1%, #C86DD7 100.5%);
+    border-radius: 3px;
+    & img{
+        border-radius: 3px;
+        max-width: 400px;
+    }
+}
+
+.modal-subtitle{
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.modal-title{
+    font-weight: bold;
+    font-size: 56px;
+    line-height: 64px;
+    color: #333333;
+    margin-bottom: 23px;
+}
+
+.modal-discribe{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333333;
+}
+
+// .close {
+//     display: none;
+// }
+
+// .open {
+//     display: flex;
+// }

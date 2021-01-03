@@ -1,0 +1,138 @@
+.table-gender{
+    background-color: #fff;
+    margin-bottom: 40px;
+    text-align: center;
+    & th {
+        color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        position: sticky;
+        background-color:  #C86DD7;
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+    & tr{
+        color: #333333;
+        font-size: 14px;
+       
+    }
+
+}
+
+
+
+.blockTable{
+    max-height: 65vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.table-client{
+    width: 100%;
+    color: #fff;
+    background-color: #fff;
+    margin: 0 auto;
+    & th{
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        position: sticky;
+        background-color:  #C86DD7;
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+    & tr {
+        font-size: 14px;
+        background-color: rgba(156, 156, 156, 0.26);  
+        
+    }
+    & td {
+        padding: 10px 5px;
+    }
+    & p{
+        color: red;
+        cursor: pointer;
+        text-align: center;
+        font-size: 18px;
+
+    }
+}   
+
+
+.delete-overlay {
+    position: absolute;
+    background-color: #000000af;
+    height: 100vh;
+    top: 0;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+.delete-wrapper {
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 18px;
+    padding: 30px 20px;
+    flex-direction: column;
+}
+
+.delete-btn {
+    margin-top: 20px;
+    display: flex;
+    max-width: 100%;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.yes {
+    padding: 10px 20px;
+    text-align: center;
+    width: 120px;
+    cursor: pointer;
+    background-color: red;
+    color: #fff;
+    &:hover{
+        background-color: rgba(255, 0, 0, 0.623);
+    }
+}
+.no {
+    text-align: center;
+    width: 120px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: grey;
+    color: #fff;
+    &:hover{
+        background-color:rgba(128, 128, 128, 0.397);
+    }
+}
+
+.success-delete {
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.success-wrap {
+    padding: 20px 30px;
+    border: 3px solid pink;
+    background-color: rgba(255, 255, 255, 0.473);
+    margin-bottom: 10px;
+}
+
+.btnScroll{
+    width: 50px;
+    height: 50px;
+    background-color: pink;
+    position: fixed;
+    top: 85vh;
+    right: 16vw;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 29px;
+    color: #fff;
+}

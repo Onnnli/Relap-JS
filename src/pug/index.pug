@@ -1,0 +1,122 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title FINAL PROJECT
+
+    body
+        .auth-overlay
+            #authBg.form-bg
+                h2 Вход
+                form#auth(action="/", method="POST")
+                    input#mail(type="email", name="email", placeholder="Ваш email", required)
+                    input#pass(type="password", name="pass", placeholder="Ваш пароль", required)
+                    .out
+                    button#submit(type="submit") Войти
+                    
+
+
+                a.reg(href="#") Зарегистрироваться
+            #formReg.form-bg(action="/", method="POST")
+                h2 Регистрация
+                form#authReg
+                    input#mailReg(type="email", name="email", placeholder="Ваш email", required)
+                    input#passReg(type="password", name="pass", placeholder="Ваш пароль", required)
+                    input#passReg2(type="password", name="pass", placeholder="Повторите пароль", required)
+                    .out
+                    button#submitReg(type="submit") Зарегистрироваться
+       
+       
+       
+       
+        header.main
+            .container
+                .menu-wrapper   
+                    .logo
+                        img(src="../img/RELAP.png", alt="logotype")
+                    nav.nav-menu#menu
+                        a#homePage.link-nav.active-tabs Главная
+                        a#contactLink.link-nav Контакты
+                        a#mapLink.link-nav Карта
+                    a#unAuth.un-auth(href="#") Выйти
+
+                //- главная страница
+
+        section.home-content.content.hide
+            .container
+                .home-overlay
+                    .title-block
+                        h1.title-content Omnis Voluptas
+                        p.subtitle-content Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
+                        a.modal(href="#")  Модалка
+                    .image-block
+                        p.agent 
+
+                //- контакты страница
+
+        section.contact-content.content.hide
+            .container
+                .tableSort
+                    table.table-gender
+                        tr
+                            th Пол
+                            th Количество 
+                            th Баланс
+                        tr 
+                            td Мужчины
+                            td.maleAmount 50
+                            td.maxMale 1000000
+                        tr
+                            td Женщины
+                            td.femaleAmount 50
+                            td.maxFemale 1000000
+                .blockTable
+                    table.table-client
+                    
+
+
+
+
+
+                //- карта страница
+
+        section.map-content.content.hide
+            .container
+                
+                iframe(src="https://www.google.com/maps/d/u/0/embed?mid=13aTzY0Plr0tSpuKRLGHwWIuE7F6OQFGe")
+
+
+
+
+
+
+
+        .modal-overlay.close
+            .modal-wrapper
+                .modal-block
+                    .modal-text 
+                        p.close-btn X
+                        h5.modal-subtitle Nisi ut aliquid
+                        h2.modal-title Omnis voluptas assumenda
+                        p.modal-discribe Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est.
+
+                    .modal-image
+                        img(src="../img/Bitmap.jpg", alt="modal")
+
+
+
+
+        .delete-overlay.close
+            .delete-wrapper 
+                .delete-text 
+                    p text
+                .delete-btn
+                    .yes
+                        p Да
+                    .no
+                        P Закрыть
+
+
+        .success-delete.close
+            .success-wrap
+                p Данные успешно удалены 

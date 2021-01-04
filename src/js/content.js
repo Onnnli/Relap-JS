@@ -1,6 +1,6 @@
-// кнопка выйти 
 import {allClient} from './contact'
 
+// кнопка выйти 
 const unAuth = document.querySelector('#unAuth');
 
 unAuth.addEventListener('click', function() {
@@ -10,9 +10,6 @@ unAuth.addEventListener('click', function() {
 })
 
 //основные секции
-
-const contactContent = document.querySelector('.contact-content');
-const mapContent = document.querySelector('.map-content');
 
 const menu = document.getElementById('menu');
 const allContent = document.getElementsByClassName('content');

@@ -1,3 +1,7 @@
+import moment from 'moment';
+moment().format();
+
+
 export const attribute = {
     'name': {
         'label': 'Имя'
@@ -37,73 +41,8 @@ export function drawHeading() {
     }
     table.append(headingRow);
 }
-export function mainTable(client) {
-    for(let i = 0; i < client.length; i++){
-    
-        let cli = client[i] 
-               
-        const row = document.createElement('tr');
-            if(cli.isActive){
-                row.style.backgroundColor = 'white'
-                row.style.color = '#333333';
-                row.style.boxShadow = '0px 5px 15px 5px rgba(0,0,0,0.5)'
-            }else{
-                row.style.color = '#33333356'
-            }
-            
-        for(let key in attribute){
-            
-            const column = document.createElement('td');
-            
-            row.append(column);
-            table.append(row)
-            column.textContent = cli[key]; 
-            
-            
-            if(attribute[key].label === 'Удалить' || attribute[key].label === 'Регистрация'){
-                if(attribute[key].label === 'Удалить'){
-                    const btnDelete = "<p class='btnDelete'> X </p>";
-                    column.innerHTML = btnDelete;
-                    column.onclick = function(){
-                        const modal = document.querySelector('.delete-overlay');
-                        modal.classList.remove('close');
-                        modal.classList.add('open')
-                        const text = document.querySelector('.delete-text');
-                        text.innerHTML = `Вы действительно хотите удалить ${cli.name}?`
-                        document.querySelector('.yes').onclick = function(){
-                            row.remove();
-                            modal.classList.add('close');
-                            modal.classList.remove('open');
-                        
-                            let success = document.querySelector('.success-delete');
-                        
-                            function sh() {
-                                success.classList.add('open');
-                                success.classList.remove('close');
-                            }
-                            setTimeout(sh, 700);
-                            function cl() {
-                                success.classList.add('close');
-                                success.classList.remove('open')
-                            }
-                            setTimeout(cl, 2000)
-                        };
 
-                        document.querySelector('.no').onclick = modalSayNo;
-                    };
 
-                    
-                }else{
-                    let thisTime = cli[key];
-                        thisTime = thisTime.split('T').join(' '); // удаляем букву Т
-                    let time = moment(thisTime)
-                    let timeFormate = time.format("Do MMMM YYYY");
-                    column.innerHTML = timeFormate;
-                }
-            } 
-        }    
-    }
-}
 export function informationTable(client){
     let female = 0;
     let male = 0;
@@ -111,7 +50,7 @@ export function informationTable(client){
     let maxBalanceFemale = 0
     let numBalMale = []
     let maxBalanceMale = 0
-
+    
     for(let i = 0; i < client.length; i++){
         let cli = client[i]
         if(cli.gender === 'female' && cli.balance){
@@ -136,26 +75,86 @@ export function informationTable(client){
         maleAmount.textContent = male;
         let femaleAmount = document.querySelector('.femaleAmount');
         femaleAmount.textContent = female;
-            let a = maxBalanceFemale.toString();
-            let aa = a.slice(0, 1);
-            let ab = a.slice(1)
-            
-            let b = maxBalanceMale.toString();
-            let ba = b.slice(0, 1);
-            let bb = b.slice(1);
-
-
+        let a = maxBalanceFemale.toString();
+        let aa = a.slice(0, 1);
+        let ab = a.slice(1)
+        
+        let b = maxBalanceMale.toString();
+        let ba = b.slice(0, 1);
+        let bb = b.slice(1);
+        
+        
         document.querySelector('.maxFemale').textContent = `$ ${aa}, ${ab}`;
         document.querySelector('.maxMale').textContent = `$ ${ba}, ${bb}`;
     }
 }
 
 
+export let activeRow = function(cli) {
+    const rowAttr = document.createElement('tr');
+    if(cli.isActive){
+            rowAttr.style.backgroundColor = 'white'
+            rowAttr.style.color = '#333333';
+            rowAttr.style.boxShadow = '0px 5px 15px 5px rgba(0,0,0,0.5)'
+        }else{
+            rowAttr.style.color = '#33333356'
+        } 
+        return rowAttr
+}
 
-export function modalSayNo(){
+export const createColumn = function(keys, row, table) {
+    const columnAttr = document.createElement('td');
+    row.append(columnAttr);
+    table.append(row)
+    columnAttr.textContent = keys; 
+    return columnAttr
+}
+
+
+
+
+export let clickBtnDelete = function(cli, row) {
     const modal = document.querySelector('.delete-overlay');
+    modal.classList.remove('close');
+    modal.classList.add('open')
+    const text = document.querySelector('.delete-text');
+    text.innerHTML = `Вы действительно хотите удалить ${cli.name}?`
+    document.querySelector('.yes').addEventListener('click', () => modalSayYes(row, modal));
+
+    document.querySelector('.no').addEventListener('click', () => modalSayNo(modal));
+};
+
+function modalSayYes(row, modal){
+    row.remove();
     modal.classList.add('close');
     modal.classList.remove('open');
+    let successMessage = document.querySelector('.success-delete');
+    setTimeout(() => showMessageSuccess(successMessage), 700);
+    setTimeout(() => closeMessageSuccess(successMessage), 2000);
+};
+
+let showMessageSuccess = function(successMessage) {
+    successMessage.classList.add('open');
+    successMessage.classList.remove('close');
+}
+
+let closeMessageSuccess = function(successMessage) {
+    successMessage.classList.add('close');
+    successMessage.classList.remove('open')
+}
+
+function modalSayNo(modal) {
+    modal.classList.add('close');
+    modal.classList.remove('open');
+}
+
+
+export let registrationDate = function(keys, column){
+    let thisTime = keys;
+        thisTime = thisTime.split('T').join(' '); // удаляем букву Т
+    let time = moment(thisTime)
+    let timeFormate = time.format("Do MMMM YYYY");
+    column.innerHTML = timeFormate;
 }
 
 export function scrollTab() {

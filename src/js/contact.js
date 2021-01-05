@@ -7,8 +7,10 @@ import {attribute} from './helperForContact'
 import {drawHeading} from './helperForContact'
 import {table} from './helperForContact'
 import {informationTable} from './helperForContact'
-import {modalSayNo} from './helperForContact'
-    
+import {activeRow} from './helperForContact'
+import {createColumn} from './helperForContact'
+import {clickBtnDelete} from './helperForContact'
+import {registrationDate} from './helperForContact'
 import {scrollTab} from './helperForContact'
 
 
@@ -25,71 +27,28 @@ export function allClient(){
 
 
 function getClientName(client){
-    informationTable(client)
-    drawHeading()
+    informationTable(client) // client 
+    drawHeading() 
     for(let i = 0; i < client.length; i++){
         let cli = client[i] 
-
-        const row = document.createElement('tr');
-            if(cli.isActive){
-                row.style.backgroundColor = 'white'
-                row.style.color = '#333333';
-                row.style.boxShadow = '0px 5px 15px 5px rgba(0,0,0,0.5)'
-            }else{
-                row.style.color = '#33333356'
-            }
-            
+        const row = activeRow(cli);
         for(let key in attribute){
-            const column = document.createElement('td');
-            row.append(column);
-            table.append(row)
-            column.textContent = cli[key]; 
-            if(attribute[key].label === 'Удалить' || attribute[key].label === 'Регистрация'){
-                if(attribute[key].label === 'Удалить'){
+            let keys = cli[key]
+            let column = createColumn(keys, row, table);
+            let attrKey = attribute[key];
+            if(attrKey.label === 'Удалить' || attrKey.label === 'Регистрация'){
+                if(attrKey.label === 'Удалить'){
                     const btnDelete = "<p class='btnDelete'> X </p>";
                     column.innerHTML = btnDelete;
-                    column.onclick = function(){
-                        const modal = document.querySelector('.delete-overlay');
-                        modal.classList.remove('close');
-                        modal.classList.add('open')
-                        const text = document.querySelector('.delete-text');
-                        text.innerHTML = `Вы действительно хотите удалить ${cli.name}?`
-                        document.querySelector('.yes').onclick = function(){
-                            row.remove();
-                            modal.classList.add('close');
-                            modal.classList.remove('open');
-                        
-                            let success = document.querySelector('.success-delete');
-                        
-                            function sh() {
-                                success.classList.add('open');
-                                success.classList.remove('close');
-                            }
-                            setTimeout(sh, 700);
-                            function cl() {
-                                success.classList.add('close');
-                                success.classList.remove('open')
-                            }
-                            setTimeout(cl, 2000)
-                        };
-
-                        document.querySelector('.no').onclick = modalSayNo;
-                    };
-
-                    
+                    column.addEventListener('click', () => clickBtnDelete(cli, row))
                 }else{
-                    let thisTime = cli[key];
-                        thisTime = thisTime.split('T').join(' '); // удаляем букву Т
-                    let time = moment(thisTime)
-                    let timeFormate = time.format("Do MMMM YYYY");
-                    column.innerHTML = timeFormate;
+                    registrationDate(keys, column);
                 }
             } 
         }       
     }
     scrollTab()
 
-    
     return true
 }
 

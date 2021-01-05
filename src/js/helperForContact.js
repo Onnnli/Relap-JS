@@ -150,11 +150,10 @@ export function informationTable(client){
     }
 }
 
-const row = document.createElement('tr');
-const modal = document.querySelector('.delete-overlay');
 
 
 export function modalSayNo(){
+    const modal = document.querySelector('.delete-overlay');
     modal.classList.add('close');
     modal.classList.remove('open');
 }
@@ -183,5 +182,4 @@ export function scrollTab() {
     })
 })
 }
-
 

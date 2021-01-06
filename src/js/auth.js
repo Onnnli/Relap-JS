@@ -1,19 +1,13 @@
 import {сlickToRegister} from './helperForAuth'
 
-
-
-
 import {mailValidationCheck} from './helperForAuth'
 import {registrationForm} from './helperForAuth'
 import {registrationSubmit} from './helperForAuth'
 import {mailRegistration} from './helperForAuth'
 import {passRegistration} from './helperForAuth'
 
-
-
 import {passwordValidationCheck} from './helperForAuth'
 import {passwRegistrationCheck} from './helperForAuth'
-
 
 import {comparisonOfPasswords} from './helperForAuth'
 import {registerNow} from './helperForAuth'

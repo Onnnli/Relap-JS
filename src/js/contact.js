@@ -9,7 +9,11 @@ import {table} from './helperForContact'
 import {informationTable} from './helperForContact'
 import {activeRow} from './helperForContact'
 import {createColumn} from './helperForContact'
+import {BtnDelete} from './helperForContact'
 import {clickBtnDelete} from './helperForContact'
+import {LabelDelete} from './helperForContact'
+import {LabelRegistration} from './helperForContact'
+
 import {registrationDate} from './helperForContact'
 import {scrollTab} from './helperForContact'
 
@@ -24,8 +28,6 @@ export function allClient(){
         return result
 };
 
-
-
 function getClientName(client){
     informationTable(client) // client 
     drawHeading() 
@@ -35,16 +37,13 @@ function getClientName(client){
         for(let key in attribute){
             let keys = cli[key]
             let column = createColumn(keys, row, table);
-            let attrKey = attribute[key];
-            if(attrKey.label === 'Удалить' || attrKey.label === 'Регистрация'){
-                if(attrKey.label === 'Удалить'){
-                    const btnDelete = "<p class='btnDelete'> X </p>";
-                    column.innerHTML = btnDelete;
-                    column.addEventListener('click', () => clickBtnDelete(cli, row))
-                }else{
-                    registrationDate(keys, column);
-                }
-            } 
+            let attrKey = attribute[key].label;
+            if(_.isEqual(attrKey, LabelDelete)) {
+                column.innerHTML = BtnDelete;
+                column.addEventListener('click', () => clickBtnDelete(cli, row))
+            }else if(_.isEqual(attrKey, LabelRegistration)) {
+                registrationDate(keys, column);
+            }
         }       
     }
     scrollTab()

@@ -111,7 +111,9 @@ export const createColumn = function(keys, row, table) {
 }
 
 
-
+export const LabelDelete = 'Удалить'
+export const LabelRegistration = 'Регистрация'
+export const BtnDelete = "<p class='btnDelete'> X </p>";
 
 export let clickBtnDelete = function(cli, row) {
     const modal = document.querySelector('.delete-overlay');
